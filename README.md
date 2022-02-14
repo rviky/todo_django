@@ -8,5 +8,5 @@ Todo Django
 
 Admin credential:
 
-username: admin
+username: admin <br>
 password: admin
