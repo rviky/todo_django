@@ -17,6 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from builder.views import *
 
+
+admin.site.site_header = "Todo Administration"
+admin.site.index_title = "Todo"
+admin.site.site_title = "Todo"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login', login, name="login"),
