@@ -1,0 +1,48 @@
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>View Todo</title>
+        {%include 'scripts.html' %}
+    </head>
+    <body>
+        <div class="container mt-5">
+
+        <div class="col-lg-12 mt-4" >
+                <p style="background:grey!important;"> <span style="float:left;"> Welcome, <b>{{request.user}}</b></span>  <span style="float:right;"> <a href="{% url 'logout' %}" style="color:red!important;">Logout</a> </span></p>
+                        </div> 
+                        <br>
+                        <br>
+
+            <!-- top -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1>To Do List</h1>
+                    <p><a href="{% url 'add' %}">Add Todo</a>  </p>
+                   
+                </div>
+                         
+                   
+                   
+            </div>
+        
+
+            <div class="row mt-4">
+               {% for todo in todoListdata %}
+                <div class="col-lg-4" style="padding:10px;">
+                    <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">{{todo.title}}</h5>
+                          <h6 class="card-subtitle mb-2 text-muted" style="{{todo.color}}">Status: {{todo.status}} </h6>
+                          <p>Last Modify: {{todo.updated}}</p>
+                           <a href="{% url 'update' todo.id %}">Update</a> &nbsp; &nbsp; <a href="{% url 'delete' todo.id %}">Delete</a>
+                        </div>
+                      </div>
+                </div>
+                {%empty%}
+                    <p> <center>No todo available! Add your todo to list.  <a href="{% url 'add' %}">Add Now?</a></center> </p>
+                {%endfor%}
+            </div>
+        </div>
+    </body>
+</html>

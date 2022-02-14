@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Update Todo</title>
+       {%include 'scripts.html' %}
+       {%load crispy_forms_tags %}
+
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h1>Update Todo</h1>
+            <p><a href="{% url 'dashboard' %}">Back to todo list</a> </p>
+            <form method="POST">
+                {% csrf_token %} 
+               
+                {{ form| crispy }}
+                
+            <br>
+            <input type="submit" value="Save"  class="btn btn-danger" />
+</form>
+        </div>
+    </body> 
+</html>
